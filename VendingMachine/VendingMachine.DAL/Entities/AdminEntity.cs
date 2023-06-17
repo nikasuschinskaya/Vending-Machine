@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using VendingMachine.DAL.Models.Entities.Base;
 
-namespace VendingMachine.DAL.Models
+namespace VendingMachine.DAL.Entities
 {
     [Table("Admins")]
-    public class Admin : BaseEntity
+    public class AdminEntity : BaseEntity
     {
         [MinLength(3), MaxLength(30)]
         [Required]

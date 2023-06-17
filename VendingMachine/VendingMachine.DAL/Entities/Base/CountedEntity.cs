@@ -1,6 +1,6 @@
 ﻿using VendingMachine.DAL.Models.Entities.Base;
 
-namespace VendingMachine.DAL.Models.Entities
+namespace VendingMachine.DAL.Entities.Base
 {
     public class CountedEntity : BaseEntity
     {

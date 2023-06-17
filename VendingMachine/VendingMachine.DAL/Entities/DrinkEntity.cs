@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VendingMachine.DAL.Enums;
-using VendingMachine.DAL.Models.Entities;
+using VendingMachine.DAL.Entities.Base;
 
-namespace VendingMachine.DAL.Models
+namespace VendingMachine.DAL.Entities
 {
     [Table("Drinks")]
-    public class Drink : CountedEntity
+    public class DrinkEntity : CountedEntity
     {
         [MaxLength(25)]
         [Required]
@@ -15,9 +14,5 @@ namespace VendingMachine.DAL.Models
 
         [Required]
         public decimal Cost { get; set; }
-
-
-        [NotMapped]
-        public State DrinkState { get; set; }
     }
 }

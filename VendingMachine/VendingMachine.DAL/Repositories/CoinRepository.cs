@@ -9,7 +9,7 @@ using VendingMachine.DAL.Repositories.Base;
 
 namespace VendingMachine.DAL.Repositories
 {
-    public class CoinRepository : BaseRepository<Coin>
+    public class CoinRepository : BaseRepository<CoinEntity>
     {
 
     }

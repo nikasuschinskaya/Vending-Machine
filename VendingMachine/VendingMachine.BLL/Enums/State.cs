@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.DAL.Enums
+﻿namespace VendingMachine.BLL.Enums
 {
     public enum State
     {

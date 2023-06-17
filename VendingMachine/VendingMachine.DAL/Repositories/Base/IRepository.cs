@@ -2,9 +2,9 @@
 {
     public interface IRepository<T>
     {
-        bool Create(T entity);
-        bool Update(T entity);
-        bool Delete(int id);
+        void Create(T entity);
+        void Update(T entity);
+        void Delete(int id);
         T GetById(int id);
         IEnumerable<T> GetAll();
     }

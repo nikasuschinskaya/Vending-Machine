@@ -1,15 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using VendingMachine.DAL.Entities;
 
 namespace VendingMachine.DAL.DBContext
 {
     public class ApplicationDbContext : DbContext
     {
-        DbSet<Coin>
+        public DbSet<CoinEntity> Coins { get; set; }
+        public DbSet<DrinkEntity> Drinks { get; set; }
+        public DbSet<AdminEntity> Admins { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseLazyLoadingProxies();

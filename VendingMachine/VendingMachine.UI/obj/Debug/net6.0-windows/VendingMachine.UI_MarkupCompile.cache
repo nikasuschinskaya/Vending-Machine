@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\Source\Repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\
 VendingMachine.UI
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\User\Source\Repos\Vending-Machine\VendingMachine\VendingMachine.UI\App.xaml
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\App.xaml
 11407045341
 
 3-1233169557
-227-245447498
+227447729440
 MainWindow.xaml;
 
-True
+False
 

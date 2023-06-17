@@ -12,6 +12,7 @@ namespace VendingMachine.DAL.Entities
         public string Name { get; set; }
 
 
+        [Column(TypeName = "decimal(18,4)")]
         [Required]
         public decimal Cost { get; set; }
     }

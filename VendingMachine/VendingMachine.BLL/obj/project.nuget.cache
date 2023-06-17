@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Yq+If1azUAq+2S9mvyUQQRmXb+yQ5xGEjK0KTNSsBfnz9xnlYhwO5n6jHS77H3grrbZ/zpozo+8LSJ5VySOG8Q==",
+  "dgSpecHash": "Pq7LBmHrB1Y60ZDUrVp7jWJfLFH4PZOjKarAm0zYp6WM1OeumZ23GoPozRzHKp322mZ8bfW5wyvfB4Cf4r+PWg==",
   "success": true,
-  "projectFilePath": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.BLL\\VendingMachine.BLL.csproj",
+  "projectFilePath": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.BLL\\VendingMachine.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

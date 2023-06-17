@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj": {}
+    "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj": {
+    "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj",
         "projectName": "VendingMachine.DAL",
-        "projectPath": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.DAL\\VendingMachine.DAL.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.DAL\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

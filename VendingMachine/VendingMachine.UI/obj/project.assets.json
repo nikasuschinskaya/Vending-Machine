@@ -3391,11 +3391,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.UI\\VendingMachine.UI.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.UI\\VendingMachine.UI.csproj",
       "projectName": "VendingMachine.UI",
-      "projectPath": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.UI\\VendingMachine.UI.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.UI\\VendingMachine.UI.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.UI\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3416,8 +3416,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.BLL\\VendingMachine.BLL.csproj": {
-              "projectPath": "C:\\Study\\6 semester\\Практика\\Task\\VendingMachine\\VendingMachine.BLL\\VendingMachine.BLL.csproj"
+            "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.BLL\\VendingMachine.BLL.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\Vending-Machine\\VendingMachine\\VendingMachine.BLL\\VendingMachine.BLL.csproj"
             }
           }
         }

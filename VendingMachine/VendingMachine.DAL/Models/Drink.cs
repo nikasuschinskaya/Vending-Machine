@@ -1,22 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VendingMachine.BLL.Enums;
+using VendingMachine.DAL.Enums;
+using VendingMachine.DAL.Models.Entities;
 
-namespace VendingMachine.BLL.Models
+namespace VendingMachine.DAL.Models
 {
     [Table("Drinks")]
-    public class Drink
+    public class Drink : CountedEntity
     {
-        [Key]
-        [Required]
-        public int DrinkId { get; }
-
         [MaxLength(25)]
         [Required]
         public string Name { get; set; }
-
-
-        public int Count { get; set; }
 
 
         [Required]

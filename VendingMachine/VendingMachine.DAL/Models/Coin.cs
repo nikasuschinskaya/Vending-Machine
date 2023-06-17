@@ -1,21 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VendingMachine.BLL.Enums;
+using VendingMachine.DAL.Enums;
+using VendingMachine.DAL.Models.Entities;
 
-namespace VendingMachine.BLL.Models
+namespace VendingMachine.DAL.Models.Models
 {
     [Table("Coins")]
-    public class Coin
+    public class Coin : CountedEntity
     {
-        [Key]
-        [Required]
-        public int CoinId { get; }
-
         [Required]
         public int Denomination { get; set; }
-
-
-        public int Count { get; set; }
 
 
         [NotMapped]

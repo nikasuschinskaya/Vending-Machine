@@ -58,11 +58,9 @@ C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\VendingMachine.BLL.pdb
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\VendingMachine.DAL.pdb
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\VendingMachine.UI.csproj.AssemblyReference.cache
-C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\VendingMachine.UI_MarkupCompile.cache
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\VendingMachine.UI_MarkupCompile.lref
-C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\VendingMachine.UI.g.resources
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\VendingMachine.UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\VendingMachine.UI.AssemblyInfoInputs.cache
@@ -81,3 +79,7 @@ C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\System.Text.Json.dll
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\MainWindow.baml
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\AutorizationWindow.g.cs
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\AutorizationWindow.baml

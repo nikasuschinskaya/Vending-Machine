@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VendingMachine.DAL.Entities.Base;
+using VendingMachine.DAL.Enums;
 
 namespace VendingMachine.DAL.Entities
 {
@@ -15,5 +16,8 @@ namespace VendingMachine.DAL.Entities
         [Column(TypeName = "decimal(18,4)")]
         [Required]
         public decimal Cost { get; set; }
+
+        [NotMapped]
+        public State DrinkState { get; set; }
     }
 }

@@ -39,10 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Images\pepsi.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

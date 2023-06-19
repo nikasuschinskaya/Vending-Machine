@@ -1,4 +1,4 @@
-﻿using VendingMachine.BLL.Enums;
+﻿using VendingMachine.DAL.Enums;
 
 namespace VendingMachine.BLL.Models
 {
@@ -11,5 +11,13 @@ namespace VendingMachine.BLL.Models
         public decimal Cost { get; set; }
 
         public State DrinkState { get; set; }
+
+        public Drink(int drinkId, string name, decimal cost, State drinkState = State.None)
+        {
+            DrinkId = drinkId;
+            Name = name;
+            Cost = cost;
+            DrinkState = drinkState;
+        }
     }
 }

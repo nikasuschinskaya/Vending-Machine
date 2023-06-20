@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VendingMachine.BLL.Models;
+﻿using VendingMachine.BLL.Models;
 using VendingMachine.DAL.Entities;
 using VendingMachine.DAL.Enums;
 using VendingMachine.DAL.Repositories.Base;
 
 namespace VendingMachine.BLL.Managers
 {
+    /// <summary>
+    /// Логика возможностей, связанных с напитками
+    /// </summary>
     public class DrinkManager
     {
         private readonly IRepository<DrinkEntity> _drinkRepository;
@@ -20,7 +18,7 @@ namespace VendingMachine.BLL.Managers
         /// </summary>
         /// <param name="depositSum">Внесенная сумма</param>
         /// <returns>Доступные для выбора напитки</returns>
-        public List<Drink> GetAvaliableDrinks(decimal depositSum) => 
+        public List<Drink> GetAvaliableDrinks(decimal depositSum) =>
                                             _drinkRepository.GetAll()
                                                             .Where(drink => drink.Cost <= depositSum && drink.Count != 0 && drink.DrinkState != State.Block)
                                                             .Select(x => new Drink(x.Id, x.Name, x.Cost))
@@ -36,6 +34,13 @@ namespace VendingMachine.BLL.Managers
             _drinkRepository.Update(drink);
             return new Drink(drink.Id, drink.Name, drink.Cost);
         }
+
+        /// <summary>
+        /// Получает цены напитков
+        /// </summary>
+        /// <param name="id">Id напитка, цену которого нужно получить</param>
+        /// <returns>цена напитка</returns>
+        public decimal GetDrinkCost(int id) => _drinkRepository.GetById(id).Cost;
 
 
         ///// <summary>
@@ -64,11 +69,7 @@ namespace VendingMachine.BLL.Managers
         //    return true;
         //}
 
-        ///// <summary>
-        ///// Расчет оставшиейся суммы после покупки напитка
-        ///// </summary>
-        ///// <returns>Сдача</returns>
-        //public decimal GetChange() => DepositedAmount - GetTotalSum();
+
 
         //public Dictionary<int, int> GetChangeInCash()
         //{

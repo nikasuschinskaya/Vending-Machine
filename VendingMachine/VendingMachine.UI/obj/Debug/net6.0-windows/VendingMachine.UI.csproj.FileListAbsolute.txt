@@ -83,3 +83,8 @@ C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\MainWindow.baml
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\AutorizationWindow.g.cs
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\AutorizationWindow.baml
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\Autofac.dll
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\AdminWindow.g.cs
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\Views\AdminWindow.baml
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll

@@ -1,40 +1,66 @@
 ﻿<Window x:Class="VendingMachine.UI.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:VendingMachine.UI.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendingMachine.UI.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1200" 
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
     <Grid>
-        <Label x:Name="PaymentSumLabel" Content="Внесено: 0 руб." FontSize="24" FontFamily="Rubik" MaxWidth="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,124,0,0"></Label>
-        <Button x:Name="OneCoinButton" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,204,0,0" VerticalAlignment="Top" Background="Black" Content="1 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
-        <Button x:Name="TwoCoinButton" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,294,0,0" VerticalAlignment="Top" Background="Black" Content="2 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
-        <Button x:Name="FiveCoinButton" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,384,0,0" VerticalAlignment="Top" Background="Black" Content="5 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
-        <Button x:Name="TenCoinButton" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,474,0,0" VerticalAlignment="Top" Background="Black" Content="10 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
+        <Label x:Name="PaymentLabel" Content="Внесено:" FontSize="24" FontFamily="Rubik" MaxWidth="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="54,124,0,0"></Label>
+        <Label x:Name="PaymentSumLabel" Content="{Binding DepositedAmount}" FontSize="24" FontFamily="Rubik" MaxWidth="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="174,124,0,0"></Label>
+        <Label x:Name="Label" Content="руб." FontSize="24" FontFamily="Rubik" MaxWidth="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="224,124,0,0" RenderTransformOrigin="2.89,0.387"></Label>
+        <Button x:Name="OneCoinButton" Command="{Binding OnClickOneCoinButton}" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,204,0,0" VerticalAlignment="Top" Background="Black" Content="1 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
+        <Button x:Name="TwoCoinButton" Command="{Binding OnClickTwoCoinButton}" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,294,0,0" VerticalAlignment="Top" Background="Black" Content="2 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
+        <Button x:Name="FiveCoinButton" Command="{Binding OnClickFiveCoinButton}" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,384,0,0" VerticalAlignment="Top" Background="Black" Content="5 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
+        <Button x:Name="TenCoinButton" Command="{Binding OnClickTenCoinButton}" Width="210" Height="70" HorizontalAlignment="Left" Margin="60,474,0,0" VerticalAlignment="Top" Background="Black" Content="10 руб." FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
 
         <Rectangle x:Name="BlackRectangle" Height="70" VerticalAlignment="Top" Fill="Black"/>
         <Label Content="Автомат напитков" FontSize="20" FontFamily="Rubik" Width="200" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="400, 15" Foreground="White"></Label>
 
-        <Button x:Name="AutorizationButton" Width="210" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Black" Content="Вход" FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
+        <Button x:Name="AutorizationButton" Command="{Binding OnClickAutorizationButton}" Width="210" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Black" Content="Вход" FontSize="20" FontFamily="Rubik" Foreground="White" Cursor="Hand" />
 
         <Rectangle x:Name="DrinkRectangle" Width="800" Fill="Black" Margin="338,100,62,27"/>
         <Label Content="Выберите напиток" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="620,112,0,0" Foreground="White"></Label>
 
-        <Image x:Name="FantaImage" Margin="422,178,630,361" Source="/Images/Fanta.png" Stretch="Fill" Cursor="Hand"/>
-        <Image x:Name="SpriteImage" Source="/Images/Sprite.png" Margin="659,175,387,361" Cursor="Hand"/>
-        <Image x:Name="SevenUpImage" Margin="922,178,144,361" Source="/Images/7up.png" Stretch="Fill" Cursor="Hand"/>
-        <Image x:Name="ColaImage" Margin="522,370,530,165" Source="/Images/Cola.png" Stretch="Fill" Cursor="Hand"/>
-        <Image x:Name="PepsiImage" Margin="792,370,258,165" Source="/Images/pepsi.png" Stretch="Fill" Cursor="Hand"/>
+        <Image x:Name="FantaImage" Margin="422,178,630,361" Source="/Images/Fanta.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding FantaVisibible}">
+            <Image.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickFanta}" />
+            </Image.InputBindings>
+        </Image>
+        <Image x:Name="SpriteImage" Source="/Images/Sprite.png" Margin="659,175,387,361" Cursor="Hand" Visibility="{Binding SpriteVisibible}">
+            <Image.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickSprite}" />
+            </Image.InputBindings>
+        </Image>
+        <Image x:Name="SevenUpImage" Margin="922,178,144,361" Source="/Images/7up.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding SevenUpVisibible}">
+            <Image.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickSevenUp}" />
+            </Image.InputBindings>
+        </Image>
+        <Image x:Name="ColaImage" Margin="522,370,530,165" Source="/Images/Cola.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding ColaVisibible}">
+            <Image.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickCola}" />
+            </Image.InputBindings>
+        </Image>
+        <Image x:Name="PepsiImage" Margin="792,370,258,165" Source="/Images/pepsi.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding PepsiVisibible}">
+            <Image.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickPepsi}" />
+            </Image.InputBindings>
+        </Image>
 
-        <Label x:Name="FantaCostLabel" Content="0 руб." FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="456,316,0,0" Foreground="White"></Label>
-        <Label x:Name="SpriteCostLabel" Content="0 руб." FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="696,320,0,0" Foreground="White"/>
-        <Label x:Name="SevenUpCostLabel" Content="0 руб." FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="949,320,0,0" Foreground="White" RenderTransformOrigin="0.468,0.107"/>
-        <Label x:Name="ColaCostLabel" Content="0 руб." FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="556,511,0,0" Foreground="White" RenderTransformOrigin="0.506,-0.155"/>
-        <Label x:Name="PepsiCostLabel" Content="0 руб." FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="827,511,0,0" Foreground="White"/>
+        <Label x:Name="FantaCostLabel" Content="{Binding OutputFantaCost, UpdateSourceTrigger=PropertyChanged}" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="456,316,0,0" Foreground="White"></Label>
+        <Label x:Name="SpriteCostLabel" Content="{Binding OutputSpriteCost, UpdateSourceTrigger=PropertyChanged}" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="696,320,0,0" Foreground="White"/>
+        <Label x:Name="SevenUpCostLabel" Content="{Binding OutputSevenUpCost, UpdateSourceTrigger=PropertyChanged}" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="949,320,0,0" Foreground="White" RenderTransformOrigin="0.468,0.107"/>
+        <Label x:Name="ColaCostLabel" Content="{Binding OutputColaCost, UpdateSourceTrigger=PropertyChanged}" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="556,511,0,0" Foreground="White" RenderTransformOrigin="0.506,-0.155"/>
+        <Label x:Name="PepsiCostLabel" Content="{Binding OutputPepsiCost, UpdateSourceTrigger=PropertyChanged}" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="827,511,0,0" Foreground="White"/>
 
-        <Button x:Name="ReadyButton" Width="217" Height="50" HorizontalAlignment="Left" Margin="627,574,0,0" VerticalAlignment="Top" Background="Yellow" Content="Готово" FontSize="20" FontFamily="Rubik" Cursor="Hand" />
+        <Button x:Name="ReadyButton" Command="{Binding OnClickReadyButton}" Width="217" Height="50" HorizontalAlignment="Left" Margin="627,574,0,0" VerticalAlignment="Top" Background="Yellow" Content="Готово" FontSize="20" FontFamily="Rubik" Cursor="Hand" />
 
 
     </Grid>

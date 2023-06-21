@@ -33,7 +33,7 @@ namespace VendingMachine.BLL.Managers
         public void DeleteDrink(int drinkId) => _drinkRepository.Delete(drinkId);
 
         /// <summary>
-        /// Изменение количества напитков 
+        /// Изменение количества напитка
         /// </summary>
         /// <param name="id">Id напитка, количество которого нужно изменить</param>
         /// <param name="newDrinkCount">Новое количество напитка</param>
@@ -49,7 +49,7 @@ namespace VendingMachine.BLL.Managers
         /// </summary>
         /// <param name="id">Id напитка, стоимость которого нужно изменить</param>
         /// <param name="newDrinkCost">Новая стоимость напитка</param>
-        public void UpdateDrinkCost(int id, int newDrinkCost)
+        public void UpdateDrinkCost(int id, decimal newDrinkCost)
         {
             var drink = _drinkRepository.GetById(id);
             drink.Cost = newDrinkCost;
@@ -80,6 +80,21 @@ namespace VendingMachine.BLL.Managers
         /// </summary>
         /// <param name="id">Id номинала,который нужно разблокировать</param>
         public void UnlockCoin(int id) => _coinRepository.GetById(id).CoinState = State.Unlock;
+
+
+        /// <summary>
+        /// Получение всех напитков
+        /// </summary>
+        /// <returns>Напитки</returns>
+        public List<Drink> GetAllDrinks() => 
+            _drinkRepository.GetAll().Select(x => new Drink(x.Id, x.Name, x.Count, x.Cost, x.DrinkState)).ToList();
+
+        /// <summary>
+        /// Получение всех монет
+        /// </summary>
+        /// <returns>Монеты</returns>
+        public List<Coin> GetAllCoins() =>
+            _coinRepository.GetAll().Select(x => new Coin(x.Id, x.Denomination, x.Count, x.CoinState)).ToList();
 
     }
 }

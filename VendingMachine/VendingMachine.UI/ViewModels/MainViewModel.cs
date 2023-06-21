@@ -1,15 +1,7 @@
 ﻿using Autofac;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using VendingMachine.BLL.Managers;
 using VendingMachine.BLL.Models;
@@ -23,6 +15,8 @@ namespace VendingMachine.UI.ViewModels
     {
         private readonly CoinManager _coinManager;
         private readonly DrinkManager _drinkManager;
+
+        public List<Drink> AvailableDrinks { get; } = new List<Drink>();
 
         public string FantaVisibible => IsEnoughMoney(1) ? "Visible" : "Hidden";
         public string OutputFantaCost => IsEnoughMoney(1) ? $"{GetFantaCost()} руб." : " ";
@@ -47,13 +41,13 @@ namespace VendingMachine.UI.ViewModels
             {
                 SetProperty(ref _depositedAmount, value);
                 OnPropertyChanged(nameof(FantaVisibible));
-                OnPropertyChanged(nameof(OutputFantaCost)); 
+                OnPropertyChanged(nameof(OutputFantaCost));
                 OnPropertyChanged(nameof(SpriteVisibible));
-                OnPropertyChanged(nameof(OutputSpriteCost));      
+                OnPropertyChanged(nameof(OutputSpriteCost));
                 OnPropertyChanged(nameof(SevenUpVisibible));
-                OnPropertyChanged(nameof(OutputSevenUpCost));  
+                OnPropertyChanged(nameof(OutputSevenUpCost));
                 OnPropertyChanged(nameof(ColaVisibible));
-                OnPropertyChanged(nameof(OutputColaCost));      
+                OnPropertyChanged(nameof(OutputColaCost));
                 OnPropertyChanged(nameof(PepsiVisibible));
                 OnPropertyChanged(nameof(OutputPepsiCost));
             }
@@ -79,6 +73,7 @@ namespace VendingMachine.UI.ViewModels
                 _coinManager = scope.Resolve<CoinManager>();
                 _drinkManager = scope.Resolve<DrinkManager>();
             }
+            RefreshAvailableDrinks();
             OnClickAutorizationButton = new RelayCommand(AutorizationButtonClicked);
             OnClickOneCoinButton = new RelayCommand(OneCoinButtonClicked);
             OnClickTwoCoinButton = new RelayCommand(TwoCoinButtonClicked);
@@ -92,6 +87,14 @@ namespace VendingMachine.UI.ViewModels
             OnClickReadyButton = new RelayCommand(ReadyButtonClicked);
         }
 
+        private void RefreshAvailableDrinks()
+        {
+            AvailableDrinks.Clear();
+            var drinks = _drinkManager.GetAvaliableDrinks(DepositedAmount);
+            foreach (var drink in drinks)
+                AvailableDrinks.Add(drink);
+        }
+
         private int GetFantaCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(1));
         private int GetSpriteCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(2));
         private int GetSevenUpCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(3));
@@ -99,16 +102,9 @@ namespace VendingMachine.UI.ViewModels
         private int GetPepsiCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(5));
 
 
-        /// <summary>
-        /// Хвататет ли денег на покупку напитка
-        /// </summary>
-        /// <returns>Да или нет</returns>
+
         private bool IsEnoughMoney(int id) => DepositedAmount >= _drinkManager.GetDrinkCost(id);
 
-        /// <summary>
-        /// Нужна ли сдача
-        /// </summary>
-        /// <returns>Да или нет</returns>
         private bool IsNeedChange() => DepositedAmount != 0;
 
         private void AutorizationButtonClicked(object parameter)
@@ -135,10 +131,34 @@ namespace VendingMachine.UI.ViewModels
         private void FiveCoinButtonClicked(object parameter) => DepositedAmount += _coinManager.GetCoinDenomination(3);
         private void TenCoinButtonClicked(object parameter) => DepositedAmount += _coinManager.GetCoinDenomination(4);
 
-        private void FantaClicked(object parameter) => DepositedAmount -= GetFantaCost();
-        private void SpriteClicked(object parameter) => DepositedAmount -= GetSpriteCost();
-        private void SevenUpClicked(object parameter) => DepositedAmount -= GetSevenUpCost();
-        private void ColaClicked(object parameter) => DepositedAmount -= GetColaCost();
-        private void PepsiClicked(object parameter) => DepositedAmount -= GetPepsiCost();
+        private void FantaClicked(object parameter)
+        {
+            DepositedAmount -= GetFantaCost();
+            _drinkManager.BuyDrink(1);
+        }
+
+        private void SpriteClicked(object parameter)
+        {
+            DepositedAmount -= GetSpriteCost();
+            _drinkManager.BuyDrink(2);
+        }
+
+        private void SevenUpClicked(object parameter)
+        {
+            DepositedAmount -= GetSevenUpCost();
+            _drinkManager.BuyDrink(3);
+        }
+
+        private void ColaClicked(object parameter)
+        {
+            DepositedAmount -= GetColaCost();
+            _drinkManager.BuyDrink(4);
+        }
+
+        private void PepsiClicked(object parameter)
+        {
+            DepositedAmount -= GetPepsiCost();
+            _drinkManager.BuyDrink(5);
+        }
     }
 }

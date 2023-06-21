@@ -1,10 +1,13 @@
 ﻿using Autofac;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using VendingMachine.BLL.Managers;
 using VendingMachine.BLL.Models;
+using VendingMachine.DAL.Enums;
+using VendingMachine.DAL.Repositories;
 using VendingMachine.UI.Commands;
 using VendingMachine.UI.ViewModels.Base;
 using VendingMachine.UI.Views;
@@ -18,20 +21,20 @@ namespace VendingMachine.UI.ViewModels
 
         public List<Drink> AvailableDrinks { get; } = new List<Drink>();
 
-        public string FantaVisibible => IsEnoughMoney(1) ? "Visible" : "Hidden";
-        public string OutputFantaCost => IsEnoughMoney(1) ? $"{GetFantaCost()} руб." : " ";
+        public string FantaVisibible => IsEnoughMoney(1) && IsDrinkAvaliable(1) ? "Visible" : "Hidden";
+        public string OutputFantaCost => IsEnoughMoney(1) && IsDrinkAvaliable(1) ? $"{GetFantaCost()} руб." : " ";
 
-        public string SpriteVisibible => IsEnoughMoney(2) ? "Visible" : "Hidden";
-        public string OutputSpriteCost => IsEnoughMoney(2) ? $"{GetSpriteCost()} руб." : " ";
+        public string SpriteVisibible => IsEnoughMoney(2) && IsDrinkAvaliable(2) ? "Visible" : "Hidden";
+        public string OutputSpriteCost => IsEnoughMoney(2) && IsDrinkAvaliable(2) ? $"{GetSpriteCost()} руб." : " ";
 
-        public string SevenUpVisibible => IsEnoughMoney(3) ? "Visible" : "Hidden";
-        public string OutputSevenUpCost => IsEnoughMoney(3) ? $"{GetSevenUpCost()} руб." : " ";
+        public string SevenUpVisibible => IsEnoughMoney(3) && IsDrinkAvaliable(3) ? "Visible" : "Hidden";
+        public string OutputSevenUpCost => IsEnoughMoney(3) && IsDrinkAvaliable(3) ? $"{GetSevenUpCost()} руб." : " ";
 
-        public string ColaVisibible => IsEnoughMoney(4) ? "Visible" : "Hidden";
-        public string OutputColaCost => IsEnoughMoney(4) ? $"{GetColaCost()} руб." : " ";
+        public string ColaVisibible => IsEnoughMoney(4) && IsDrinkAvaliable(4) ? "Visible" : "Hidden";
+        public string OutputColaCost => IsEnoughMoney(4) && IsDrinkAvaliable(4) ? $"{GetColaCost()} руб." : " ";
 
-        public string PepsiVisibible => IsEnoughMoney(5) ? "Visible" : "Hidden";
-        public string OutputPepsiCost => IsEnoughMoney(5) ? $"{GetPepsiCost()} руб." : " ";
+        public string PepsiVisibible => IsEnoughMoney(5) && IsDrinkAvaliable(5) ? "Visible" : "Hidden";
+        public string OutputPepsiCost => IsEnoughMoney(5) && IsDrinkAvaliable(5) ? $"{GetPepsiCost()} руб." : " ";
 
         private decimal _depositedAmount;
         public decimal DepositedAmount
@@ -90,7 +93,7 @@ namespace VendingMachine.UI.ViewModels
         private void RefreshAvailableDrinks()
         {
             AvailableDrinks.Clear();
-            var drinks = _drinkManager.GetAvaliableDrinks(DepositedAmount);
+            var drinks = _drinkManager.GetAvaliableDrinks();
             foreach (var drink in drinks)
                 AvailableDrinks.Add(drink);
         }
@@ -104,6 +107,16 @@ namespace VendingMachine.UI.ViewModels
 
 
         private bool IsEnoughMoney(int id) => DepositedAmount >= _drinkManager.GetDrinkCost(id);
+
+        public bool IsDrinkAvaliable(int id)
+        {
+            foreach (var item in AvailableDrinks)
+            {
+                if (item.Equals(_drinkManager.GetDrinkById(id)))
+                    return true;
+            }
+            return false;
+        }
 
         private bool IsNeedChange() => DepositedAmount != 0;
 

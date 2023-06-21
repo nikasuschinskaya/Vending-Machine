@@ -12,51 +12,26 @@ namespace VendingMachine.UI.ViewModels
     public class AdminViewModel : ViewModelBase
     {
         private readonly AdminManager _adminManager;
-        private int _drinkId;
-        private int _coinId;
-        private string _name;
-        private int _count;
-        private decimal _cost;
 
-        public List<Drink> Drinks { get; set; }
-        public List<Coin> Coins { get; set; }
-        public int CoinId
-        {
-            get => _coinId;
-            set => SetProperty(ref _coinId, value);
-        }
+        private Drink _selectedDrink = new Drink(0, "Name", 0, 0);
+        private Coin _selectedCoin;
+        public Drink SelectedDrink { get => _selectedDrink; set => SetProperty(ref _selectedDrink, value); }
+        public Coin SelectedCoin { get => _selectedCoin; set => SetProperty(ref _selectedCoin, value); }
 
-        public int DrinkId
-        {
-            get => _drinkId;
-            set => SetProperty(ref _drinkId, value);
-        }
 
-        public string Name
-        {
-            get => _name;
-            set => SetProperty(ref _name, value);
-        }
-        public int Count
-        {
-            get => _count;
-            set => SetProperty(ref _count, value);
-        }
+        private List<Drink> _drinks;
+        private List<Coin> _coins;
 
-        public decimal Cost
-        {
-            get => _cost;
-            set => SetProperty(ref _cost, value);
-        }
+        public List<Drink> Drinks { get => _drinks; set => SetProperty(ref _drinks, value); }
+        public List<Coin> Coins { get => _coins; set => SetProperty(ref _coins, value); }
 
-        public ICommand OnClickAddButton { get; }
+        public ICommand OnClickAddButton { get; set; }
         public ICommand OnClickUpdateButton { get; }
         public ICommand OnClickDeleteButton { get; }
         public ICommand OnClickBlockButton { get; }
         public ICommand OnClickUnlockButton { get; }
         public ICommand OnClickBlockCoinButton { get; }
         public ICommand OnClickUnlockCoinButton { get; }
-
 
         public AdminViewModel()
         {
@@ -80,40 +55,47 @@ namespace VendingMachine.UI.ViewModels
 
         private void AddButtonClicked(object parametr)
         {
-            _adminManager.AddDrink(new Drink(DrinkId, Name, Count, Cost));
+            _adminManager.AddDrink(SelectedDrink);
+            Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток добавлен!");
         }
 
         private void UpdateButtonClicked(object parametr)
         {
-            _adminManager.UpdateDrinkCost(DrinkId, Cost);
-            _adminManager.UpdateDrinkCount(DrinkId, Count);
+            _adminManager.UpdateDrinkCost(SelectedDrink.DrinkId, SelectedDrink.Cost);
+            _adminManager.UpdateDrinkCount(SelectedDrink.DrinkId, SelectedDrink.Count);
+            Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток изменен!");
         }
 
         private void DeleteButtonClicked(object parametr)
         {
-            _adminManager.DeleteDrink(DrinkId);
+            _adminManager.DeleteDrink(SelectedDrink.DrinkId);
+            Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток удален!");
         }
         private void BlockButtonClicked(object parametr)
         {
-            _adminManager.BlockDrink(DrinkId);
+            _adminManager.BlockDrink(SelectedDrink.DrinkId);
+            Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток заблокирован!");
         }
         private void UnlockButtonClicked(object parametr)
         {
-            _adminManager.UnlockDrink(DrinkId);
+            _adminManager.UnlockDrink(SelectedDrink.DrinkId);
+            Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток разблокирован!");
         }
         private void BlockCoinButtonClicked(object parametr)
         {
-            _adminManager.BlockCoin(CoinId);
+            _adminManager.BlockCoin(SelectedCoin.CoinId);
+            Coins = _adminManager.GetAllCoins();
             MessageBox.Show("Номинал заблокирован!");
         }
         private void UnlockCoinButtonClicked(object parametr)
         {
-            _adminManager.UnlockCoin(CoinId);
+            _adminManager.UnlockCoin(SelectedCoin.CoinId);
+            Coins = _adminManager.GetAllCoins();
             MessageBox.Show("Номинал разблокирован!");
         }
 

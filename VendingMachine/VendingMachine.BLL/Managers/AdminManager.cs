@@ -1,6 +1,7 @@
 ﻿using VendingMachine.BLL.Models;
 using VendingMachine.DAL.Entities;
 using VendingMachine.DAL.Enums;
+using VendingMachine.DAL.Repositories;
 using VendingMachine.DAL.Repositories.Base;
 
 namespace VendingMachine.BLL.Managers
@@ -24,7 +25,7 @@ namespace VendingMachine.BLL.Managers
         /// </summary>
         /// <param name="drink">Напиток</param>
         public void AddDrink(Drink drink) =>
-            _drinkRepository.Create(new DrinkEntity { Id = drink.DrinkId, Name = drink.Name, Cost = drink.Cost, DrinkState = drink.DrinkState });
+            _drinkRepository.Create(new DrinkEntity { Name = drink.Name, Cost = drink.Cost, Count = drink.Count, DrinkState = drink.DrinkState });
 
         /// <summary>
         /// Удаление напитка
@@ -60,26 +61,47 @@ namespace VendingMachine.BLL.Managers
         /// Блокировка напитка
         /// </summary>
         /// <param name="id">Id напитка, который нужно заблокировать</param>
-        public void BlockDrink(int id) => _drinkRepository.GetById(id).DrinkState = State.Block;
+        public void BlockDrink(int id)
+        {
+            var drink = _drinkRepository.GetById(id);
+            drink.DrinkState = State.Block;
+            _drinkRepository.Update(drink);
+
+        }
 
         /// <summary>
         /// Разблокировка напитка
         /// </summary>
         /// <param name="id">Id напитка,который нужно разблокировать</param>
-        public void UnlockDrink(int id) => _drinkRepository.GetById(id).DrinkState = State.Unlock;
+        public void UnlockDrink(int id)
+        {
+            var drink = _drinkRepository.GetById(id);
+            drink.DrinkState = State.Unlock;
+            _drinkRepository.Update(drink);
+        }
 
         /// <summary>
         /// Блокировка номинала
         /// </summary>
         /// <param name="id">Id номинала, который нужно заблокировать</param>
-        public void BlockCoin(int id) => _coinRepository.GetById(id).CoinState = State.Block;
+        public void BlockCoin(int id)
+        {
+            var coin = _coinRepository.GetById(id);
+            coin.CoinState = State.Block;
+            _coinRepository.Update(coin);
+        }
 
 
         /// <summary>
         /// Разблокировка номинала
         /// </summary>
         /// <param name="id">Id номинала,который нужно разблокировать</param>
-        public void UnlockCoin(int id) => _coinRepository.GetById(id).CoinState = State.Unlock;
+        public void UnlockCoin(int id)
+        {
+            var coin = _coinRepository.GetById(id);
+            coin.CoinState = State.Unlock;
+            _coinRepository.Update(coin);
+        }
 
 
         /// <summary>

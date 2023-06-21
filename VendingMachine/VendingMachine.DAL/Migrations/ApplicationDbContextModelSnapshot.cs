@@ -55,6 +55,9 @@ namespace VendingMachine.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CoinState")
+                        .HasColumnType("int");
+
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -78,6 +81,9 @@ namespace VendingMachine.DAL.Migrations
                         .HasColumnType("decimal(18,4)");
 
                     b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DrinkState")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

@@ -1,4 +1,6 @@
-﻿namespace VendingMachine.DAL.Repositories.Base
+﻿using VendingMachine.DAL.Entities;
+
+namespace VendingMachine.DAL.Repositories.Base
 {
     public interface IRepository<T>
     {

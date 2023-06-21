@@ -18,11 +18,20 @@ namespace VendingMachine.BLL.Managers
         /// </summary>
         /// <param name="depositSum">Внесенная сумма</param>
         /// <returns>Доступные для выбора напитки</returns>
-        public List<Drink> GetAvaliableDrinks(decimal depositSum) =>
+        public List<Drink> GetAvaliableDrinks() =>
                                             _drinkRepository.GetAll()
-                                                            .Where(drink => drink.Cost <= depositSum && drink.Count != 0 && drink.DrinkState != State.Block)
+                                                            .Where(drink => drink.Count > 0 && drink.DrinkState != State.Block)
                                                             .Select(x => new Drink(x.Id, x.Name, x.Count, x.Cost, x.DrinkState))
                                                             .ToList();
+
+        public Drink GetDrinkById(int id)
+        {
+            var drink = _drinkRepository.GetById(id);
+            return new Drink(drink.Id, drink.Name, drink.Count, drink.Cost);
+        }
+
+        public List<Drink> GetAllDrinks() =>
+           _drinkRepository.GetAll().Select(x => new Drink(x.Id, x.Name, x.Count, x.Cost, x.DrinkState)).ToList();
 
         /// <summary>
         /// Уменьшает количество напитков при покупке

@@ -17,7 +17,6 @@ namespace VendingMachine.DAL.Entities
         [Required]
         public decimal Cost { get; set; }
 
-        [NotMapped]
         public State DrinkState { get; set; }
     }
 }

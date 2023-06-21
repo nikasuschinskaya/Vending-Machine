@@ -10,6 +10,7 @@ namespace VendingMachine.DAL.Repositories
 
         public override void Create(DrinkEntity entity)
         {
+            entity.Id = 0;
             _context.Drinks.Add(entity);
             _context.SaveChanges();
         }

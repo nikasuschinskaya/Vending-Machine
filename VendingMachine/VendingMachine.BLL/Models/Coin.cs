@@ -4,7 +4,7 @@ namespace VendingMachine.BLL.Models
 {
     public class Coin
     {
-        public int CoinId { get; }
+        public int CoinId { get; set; }
 
         public int Denomination { get; set; }
 

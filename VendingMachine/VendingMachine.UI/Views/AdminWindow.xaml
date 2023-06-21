@@ -17,13 +17,13 @@
                 <StackPanel Width="900" Orientation="Horizontal">
                     <StackPanel Width="300">
                         <Label Content="Id" FontSize="16" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" RenderTransformOrigin="0.472,0.017" Width="54"/>
-                        <TextBox x:Name="drinkIdTextBox" Text="{Binding DrinkId}" FontSize="14" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkIdTextBox" Text="{Binding SelectedDrink.DrinkId}" FontSize="14" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" TextWrapping="Wrap" Width="200"/>
                         <Label Content="Название" HorizontalAlignment="Left" FontSize="16" FontFamily="Rubik" Width="92"/>
-                        <TextBox x:Name="drinkNameTextBox" Text="{Binding Name}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkNameTextBox" Text="{Binding SelectedDrink.Name}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <Label Content="Количество" FontSize="16" HorizontalAlignment="Left" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="108"/>
-                        <TextBox x:Name="drinkCountTextBox" Text="{Binding Count}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkCountTextBox" Text="{Binding SelectedDrink.Count}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <Label Content="Цена" FontSize="16" HorizontalAlignment="Left" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="54"/>
-                        <TextBox x:Name="drinkCostTextBox" Text="{Binding Cost}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkCostTextBox" Text="{Binding SelectedDrink.Cost}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <UniformGrid Rows="5" Margin="10">
                             <Button x:Name="AddDrinkButton" Command="{Binding OnClickAddButton}" Content="Добавить" HorizontalAlignment="Left" Margin="10" FontSize="16" FontFamily="Rubik" Height="39" Width="120" Cursor="Hand" />
                             <Button x:Name="UpdateDrinkButton" Command="{Binding OnClickUpdateButton}" Content="Обновить" FontSize="16" HorizontalAlignment="Left" Margin="10"  FontFamily="Rubik" Height="39" Width="120" Cursor="Hand"/>
@@ -34,7 +34,7 @@
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Напиток" FontSize="20" FontFamily="Rubik" Width="104"/>
-                        <DataGrid Name="DrinksDataGrid" ColumnWidth="*" ItemsSource="{Binding Drinks}" AutoGenerateColumns="False" Height="301" Width="600">
+                        <DataGrid Name="DrinksDataGrid" ColumnWidth="*" ItemsSource="{Binding Drinks}" SelectedItem="{Binding SelectedDrink}" AutoGenerateColumns="False" Height="301" Width="600">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id" Binding="{Binding DrinkId}"/>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
@@ -50,15 +50,15 @@
                 <StackPanel Width="900" Orientation="Horizontal">
                     <StackPanel Width="300">
                         <Label Content="Id" FontSize="16" HorizontalAlignment="Left" Margin="5" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="54"/>
-                        <TextBox x:Name="coinIdTextBox" Text="{Binding CoinId}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="coinIdTextBox" Text="{Binding SelectedCoin.CoinId}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <UniformGrid Rows="2" Margin="35">
-                            <Button x:Name="BlockCoinButton" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
-                            <Button x:Name="UnlockCoinButton" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
+                            <Button x:Name="BlockCoinButton" Command="{Binding OnClickBlockCoinButton}" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
+                            <Button x:Name="UnlockCoinButton" Command="{Binding OnClickUnlockCoinButton}" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
                         </UniformGrid>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Монета" FontSize="20" FontFamily="Rubik" MaxWidth="104"/>
-                        <DataGrid Name="CoinsDataGrid" ColumnWidth="*" ItemsSource="{Binding Coins}" AutoGenerateColumns="False" Height="301" Width="600">
+                        <DataGrid Name="CoinsDataGrid" ColumnWidth="*" ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoin}" AutoGenerateColumns="False" Height="301" Width="600">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id" Binding="{Binding CoinId}"/>
                                 <DataGridTextColumn Header="Denomination" Binding="{Binding Denomination}"/>

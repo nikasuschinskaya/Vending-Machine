@@ -11,7 +11,6 @@ namespace VendingMachine.DAL.Entities
         [Required]
         public int Denomination { get; set; }
 
-        [NotMapped]
         public State CoinState { get; set; }
     }
 }

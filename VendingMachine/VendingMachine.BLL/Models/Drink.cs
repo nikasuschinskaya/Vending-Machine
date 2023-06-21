@@ -4,9 +4,10 @@ namespace VendingMachine.BLL.Models
 {
     public class Drink
     {
-        public int DrinkId { get; }
+        public int DrinkId { get; set; }
 
         public string Name { get; set; }
+
         public int Count { get; set; }
 
         public decimal Cost { get; set; }
@@ -20,6 +21,16 @@ namespace VendingMachine.BLL.Models
             Count = count;
             Cost = cost;
             DrinkState = drinkState;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Drink drink &&
+                   DrinkId == drink.DrinkId &&
+                   Name == drink.Name &&
+                   Count == drink.Count &&
+                   Cost == drink.Cost &&
+                   DrinkState == drink.DrinkState;
         }
     }
 }

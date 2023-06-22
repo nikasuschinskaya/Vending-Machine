@@ -1,7 +1,6 @@
 ﻿using VendingMachine.BLL.Models;
 using VendingMachine.DAL.Entities;
 using VendingMachine.DAL.Enums;
-using VendingMachine.DAL.Repositories;
 using VendingMachine.DAL.Repositories.Base;
 
 namespace VendingMachine.BLL.Managers
@@ -91,7 +90,6 @@ namespace VendingMachine.BLL.Managers
             _coinRepository.Update(coin);
         }
 
-
         /// <summary>
         /// Разблокировка номинала
         /// </summary>
@@ -103,12 +101,11 @@ namespace VendingMachine.BLL.Managers
             _coinRepository.Update(coin);
         }
 
-
         /// <summary>
         /// Получение всех напитков
         /// </summary>
         /// <returns>Напитки</returns>
-        public List<Drink> GetAllDrinks() => 
+        public List<Drink> GetAllDrinks() =>
             _drinkRepository.GetAll().Select(x => new Drink(x.Id, x.Name, x.Count, x.Cost, x.DrinkState)).ToList();
 
         /// <summary>
@@ -117,6 +114,5 @@ namespace VendingMachine.BLL.Managers
         /// <returns>Монеты</returns>
         public List<Coin> GetAllCoins() =>
             _coinRepository.GetAll().Select(x => new Coin(x.Id, x.Denomination, x.Count, x.CoinState)).ToList();
-
     }
 }

@@ -16,10 +16,10 @@
         <Label Content="Авторизация" MaxHeight="40" MaxWidth="200" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Rubik" FontSize="18" Margin="0,30,0,0"/>
 
         <Label Content="Логин:" MaxHeight="40" MaxWidth="200" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Rubik" FontSize="14" Margin="78,84,0,0"/>
-        <TextBox x:Name="LoginTextBox" Text="{Binding Login, Mode=TwoWay}" FontSize="12" Margin="78,116,80,216" />
+        <TextBox x:Name="LoginTextBox" Text="{Binding Login, Mode=TwoWay}" FontSize="13" Margin="78,116,80,216" />
 
         <Label Content="Пароль:" MaxHeight="40" MaxWidth="200" HorizontalAlignment="Left" VerticalAlignment="Top"  FontFamily="Rubik" FontSize="14" Margin="78,169,0,0"/>
-        <PasswordBox x:Name="PassTextBox" FontSize="12" Margin="80,202,80,131"/>
+        <PasswordBox x:Name="PassTextBox" FontSize="13" Margin="80,202,80,131"/>
 
         <Button x:Name="Autorization" Command="{Binding OnclickAutorization}" CommandParameter="{Binding ElementName=PassTextBox}" Content="Войти" Foreground="White" Background="Black" FontFamily="Rubik" FontSize="14" Margin="152,280,152,36" Cursor="Hand" />
     </Grid>

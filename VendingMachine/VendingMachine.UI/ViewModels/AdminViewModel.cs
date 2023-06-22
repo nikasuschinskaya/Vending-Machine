@@ -15,13 +15,11 @@ namespace VendingMachine.UI.ViewModels
 
         private Drink _selectedDrink = new Drink(0, "Name", 0, 0);
         private Coin _selectedCoin;
-        public Drink SelectedDrink { get => _selectedDrink; set => SetProperty(ref _selectedDrink, value); }
-        public Coin SelectedCoin { get => _selectedCoin; set => SetProperty(ref _selectedCoin, value); }
-
-
         private List<Drink> _drinks;
         private List<Coin> _coins;
 
+        public Drink SelectedDrink { get => _selectedDrink; set => SetProperty(ref _selectedDrink, value); }
+        public Coin SelectedCoin { get => _selectedCoin; set => SetProperty(ref _selectedCoin, value); }
         public List<Drink> Drinks { get => _drinks; set => SetProperty(ref _drinks, value); }
         public List<Coin> Coins { get => _coins; set => SetProperty(ref _coins, value); }
 
@@ -98,6 +96,5 @@ namespace VendingMachine.UI.ViewModels
             Coins = _adminManager.GetAllCoins();
             MessageBox.Show("Номинал разблокирован!");
         }
-
     }
 }

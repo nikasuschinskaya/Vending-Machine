@@ -11,23 +11,14 @@ namespace VendingMachine.UI.ViewModels
 {
     public class AutorizationViewModel : ViewModelBase
     {
+        private readonly AutorizationManager _autorizationManager;
         private string _login;
         private string _password;
-        private readonly AutorizationManager _autorizationManager;
+
+        public string Login { get => _login; set => SetProperty(ref _login, value); }
+        public string Password { get => _password; set => SetProperty(ref _password, value); }
 
         public ICommand OnclickAutorization { get; }
-
-        public string Login
-        {
-            get => _login;
-            set => SetProperty(ref _login, value);
-        }
-
-        public string Password
-        {
-            get => _password;
-            set => SetProperty(ref _password, value);
-        }
 
         public AutorizationViewModel()
         {

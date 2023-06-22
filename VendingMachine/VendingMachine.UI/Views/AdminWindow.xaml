@@ -12,24 +12,24 @@
         <vm:AdminViewModel />
     </Window.DataContext>
     <Grid>
-        <TabControl Margin="0,0,10,0" FontSize="12">
-            <TabItem Header="Напитки">
+        <TabControl Margin="0,0,10,0">
+            <TabItem Header="Напитки" FontSize="14">
                 <StackPanel Width="900" Orientation="Horizontal">
                     <StackPanel Width="300">
                         <Label Content="Id" FontSize="16" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" RenderTransformOrigin="0.472,0.017" Width="54"/>
-                        <TextBox x:Name="drinkIdTextBox" Text="{Binding SelectedDrink.DrinkId}" FontSize="14" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkIdTextBox" Text="{Binding SelectedDrink.DrinkId}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <Label Content="Название" HorizontalAlignment="Left" FontSize="16" FontFamily="Rubik" Width="92"/>
-                        <TextBox x:Name="drinkNameTextBox" Text="{Binding SelectedDrink.Name}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkNameTextBox" Text="{Binding SelectedDrink.Name}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <Label Content="Количество" FontSize="16" HorizontalAlignment="Left" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="108"/>
-                        <TextBox x:Name="drinkCountTextBox" Text="{Binding SelectedDrink.Count}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkCountTextBox" Text="{Binding SelectedDrink.Count}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <Label Content="Цена" FontSize="16" HorizontalAlignment="Left" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="54"/>
-                        <TextBox x:Name="drinkCostTextBox" Text="{Binding SelectedDrink.Cost}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="drinkCostTextBox" Text="{Binding SelectedDrink.Cost}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <UniformGrid Rows="5" Margin="10">
-                            <Button x:Name="AddDrinkButton" Command="{Binding OnClickAddButton}" Content="Добавить" HorizontalAlignment="Left" Margin="10" FontSize="16" FontFamily="Rubik" Height="39" Width="120" Cursor="Hand" />
-                            <Button x:Name="UpdateDrinkButton" Command="{Binding OnClickUpdateButton}" Content="Обновить" FontSize="16" HorizontalAlignment="Left" Margin="10"  FontFamily="Rubik" Height="39" Width="120" Cursor="Hand"/>
-                            <Button x:Name="DeleteDrinkButton" Command="{Binding OnClickDeleteButton}" Content="Удалить" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="120" Cursor="Hand"/>
-                            <Button x:Name="BlockDrinkButton" Command="{Binding OnClickBlockButton}" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
-                            <Button x:Name="UnlockDrinkButton" Command="{Binding OnClickUnlockButton}" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
+                            <Button x:Name="AddDrinkButton" Command="{Binding OnClickAddButton}" Content="Добавить" HorizontalAlignment="Left" Margin="10" FontSize="16" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="120" Cursor="Hand" />
+                            <Button x:Name="UpdateDrinkButton" Command="{Binding OnClickUpdateButton}" Content="Обновить" FontSize="16" HorizontalAlignment="Left" Margin="10"  FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="120" Cursor="Hand"/>
+                            <Button x:Name="DeleteDrinkButton" Command="{Binding OnClickDeleteButton}" Content="Удалить" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="120" Cursor="Hand"/>
+                            <Button x:Name="BlockDrinkButton" Command="{Binding OnClickBlockButton}" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="153" Cursor="Hand"/>
+                            <Button x:Name="UnlockDrinkButton" Command="{Binding OnClickUnlockButton}" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="153" Cursor="Hand"/>
                         </UniformGrid>
                     </StackPanel>
                     <StackPanel>
@@ -46,14 +46,14 @@
                     </StackPanel>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Монеты">
+            <TabItem Header="Монеты" FontSize="14">
                 <StackPanel Width="900" Orientation="Horizontal">
                     <StackPanel Width="300">
                         <Label Content="Id" FontSize="16" HorizontalAlignment="Left" Margin="5" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="54"/>
-                        <TextBox x:Name="coinIdTextBox" Text="{Binding SelectedCoin.CoinId}" FontSize="14" FontFamily="Rubik" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <TextBox x:Name="coinIdTextBox" Text="{Binding SelectedCoin.CoinId}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
                         <UniformGrid Rows="2" Margin="35">
-                            <Button x:Name="BlockCoinButton" Command="{Binding OnClickBlockCoinButton}" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
-                            <Button x:Name="UnlockCoinButton" Command="{Binding OnClickUnlockCoinButton}" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Height="39" Width="153" Cursor="Hand"/>
+                            <Button x:Name="BlockCoinButton" Command="{Binding OnClickBlockCoinButton}" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="153" Cursor="Hand"/>
+                            <Button x:Name="UnlockCoinButton" Command="{Binding OnClickUnlockCoinButton}" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="153" Cursor="Hand"/>
                         </UniformGrid>
                     </StackPanel>
                     <StackPanel>

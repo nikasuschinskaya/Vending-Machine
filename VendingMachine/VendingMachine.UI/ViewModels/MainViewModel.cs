@@ -1,13 +1,10 @@
 ﻿using Autofac;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using VendingMachine.BLL.Managers;
 using VendingMachine.BLL.Models;
-using VendingMachine.DAL.Enums;
-using VendingMachine.DAL.Repositories;
 using VendingMachine.UI.Commands;
 using VendingMachine.UI.ViewModels.Base;
 using VendingMachine.UI.Views;
@@ -18,8 +15,31 @@ namespace VendingMachine.UI.ViewModels
     {
         private readonly CoinManager _coinManager;
         private readonly DrinkManager _drinkManager;
+        //private List<Coin> _avaliableCoins = new List<Coin>();
+        private decimal _depositedAmount;
 
         public List<Drink> AvailableDrinks { get; } = new List<Drink>();
+        //public List<Coin> AvailableCoins { get; } = new List<Coin>();
+
+        //public List<Coin> AvailableCoins
+        //{
+        //    get => _avaliableCoins;
+        //    set
+        //    {
+        //        SetProperty(ref _avaliableCoins, value);
+        //        OnPropertyChanged(nameof(OneCoinButtonVisibible));
+        //        OnPropertyChanged(nameof(TwoCoinButtonVisibible));
+        //        OnPropertyChanged(nameof(FiveCoinButtonVisibible));
+        //        OnPropertyChanged(nameof(TenCoinButtonVisibible));
+        //    }
+        //}
+
+        //public string OneCoinButtonVisibible => IsCoinAvaliable(1) ? "Visible" : "Hidden";
+        //public string TwoCoinButtonVisibible => IsCoinAvaliable(2) ? "Visible" : "Hidden";
+        //public string FiveCoinButtonVisibible => IsCoinAvaliable(3) ? "Visible" : "Hidden";
+        //public string TenCoinButtonVisibible => IsCoinAvaliable(4) ? "Visible" : "Hidden";
+
+
 
         public string FantaVisibible => IsEnoughMoney(1) && IsDrinkAvaliable(1) ? "Visible" : "Hidden";
         public string OutputFantaCost => IsEnoughMoney(1) && IsDrinkAvaliable(1) ? $"{GetFantaCost()} руб." : " ";
@@ -36,7 +56,7 @@ namespace VendingMachine.UI.ViewModels
         public string PepsiVisibible => IsEnoughMoney(5) && IsDrinkAvaliable(5) ? "Visible" : "Hidden";
         public string OutputPepsiCost => IsEnoughMoney(5) && IsDrinkAvaliable(5) ? $"{GetPepsiCost()} руб." : " ";
 
-        private decimal _depositedAmount;
+
         public decimal DepositedAmount
         {
             get => _depositedAmount;
@@ -77,6 +97,7 @@ namespace VendingMachine.UI.ViewModels
                 _drinkManager = scope.Resolve<DrinkManager>();
             }
             RefreshAvailableDrinks();
+            //RefreshAvailableCoins();
             OnClickAutorizationButton = new RelayCommand(AutorizationButtonClicked);
             OnClickOneCoinButton = new RelayCommand(OneCoinButtonClicked);
             OnClickTwoCoinButton = new RelayCommand(TwoCoinButtonClicked);
@@ -90,6 +111,12 @@ namespace VendingMachine.UI.ViewModels
             OnClickReadyButton = new RelayCommand(ReadyButtonClicked);
         }
 
+        private int GetFantaCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(1));
+        private int GetSpriteCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(2));
+        private int GetSevenUpCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(3));
+        private int GetColaCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(4));
+        private int GetPepsiCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(5));
+
         private void RefreshAvailableDrinks()
         {
             AvailableDrinks.Clear();
@@ -98,17 +125,42 @@ namespace VendingMachine.UI.ViewModels
                 AvailableDrinks.Add(drink);
         }
 
-        private int GetFantaCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(1));
-        private int GetSpriteCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(2));
-        private int GetSevenUpCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(3));
-        private int GetColaCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(4));
-        private int GetPepsiCost() => Convert.ToInt32(_drinkManager.GetDrinkCost(5));
+        //private void RefreshAvailableCoins()
+        //{
+        //    AvailableCoins.Clear();
+        //    var coins = _coinManager.GetAvaliableCoins();
+        //    foreach (var coin in coins)
+        //        AvailableCoins.Add(coin);
+        //}
 
+        private void OneCoinButtonClicked(object parameter)
+        {
+            DepositedAmount += _coinManager.GetCoinDenomination(1);
+            _coinManager.DepositCoin(1);
+        }
 
+        private void TwoCoinButtonClicked(object parameter)
+        {
+            DepositedAmount += _coinManager.GetCoinDenomination(2);
+            _coinManager.DepositCoin(2);
+        }
+
+        private void FiveCoinButtonClicked(object parameter)
+        {
+            DepositedAmount += _coinManager.GetCoinDenomination(3);
+            _coinManager.DepositCoin(3);
+        }
+
+        private void TenCoinButtonClicked(object parameter)
+        {
+            DepositedAmount += _coinManager.GetCoinDenomination(4);
+            _coinManager.DepositCoin(4);
+        }
 
         private bool IsEnoughMoney(int id) => DepositedAmount >= _drinkManager.GetDrinkCost(id);
+        private bool IsNeedChange() => DepositedAmount != 0;
 
-        public bool IsDrinkAvaliable(int id)
+        private bool IsDrinkAvaliable(int id)
         {
             foreach (var item in AvailableDrinks)
             {
@@ -118,13 +170,22 @@ namespace VendingMachine.UI.ViewModels
             return false;
         }
 
-        private bool IsNeedChange() => DepositedAmount != 0;
+        //private bool IsCoinAvaliable(int id)
+        //{
+        //    foreach (var item in AvailableCoins)
+        //    {
+        //        if (item.Equals(_coinManager.GetCoinById(id)))
+        //            return true;
+        //    }
+        //    return false;
+        //}
 
         private void AutorizationButtonClicked(object parameter)
         {
             AutorizationWindow autorizationWindow = new AutorizationWindow();
             autorizationWindow.Show();
         }
+
         private void ReadyButtonClicked(object parameter)
         {
             if (!IsNeedChange()) MessageBox.Show("Спасибо, что у вас без сдачи!");
@@ -133,16 +194,15 @@ namespace VendingMachine.UI.ViewModels
                 var change = _coinManager.GetChange(DepositedAmount);
                 string str = string.Empty;
                 foreach (var item in change)
+                {
                     str += $"{item.Key} руб. - {item.Value} шт. \n";
+                    _coinManager.UpdateDrinkCount(item.Key, item.Value);
+                }
 
                 MessageBox.Show($"Ваша сдача:\n{str}");
                 DepositedAmount = 0;
             }
         }
-        private void OneCoinButtonClicked(object parameter) => DepositedAmount += _coinManager.GetCoinDenomination(1);
-        private void TwoCoinButtonClicked(object parameter) => DepositedAmount += _coinManager.GetCoinDenomination(2);
-        private void FiveCoinButtonClicked(object parameter) => DepositedAmount += _coinManager.GetCoinDenomination(3);
-        private void TenCoinButtonClicked(object parameter) => DepositedAmount += _coinManager.GetCoinDenomination(4);
 
         private void FantaClicked(object parameter)
         {

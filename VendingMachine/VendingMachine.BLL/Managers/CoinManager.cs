@@ -1,7 +1,6 @@
 ﻿using VendingMachine.BLL.Models;
 using VendingMachine.DAL.Entities;
 using VendingMachine.DAL.Enums;
-using VendingMachine.DAL.Repositories;
 using VendingMachine.DAL.Repositories.Base;
 
 namespace VendingMachine.BLL.Managers
@@ -24,16 +23,6 @@ namespace VendingMachine.BLL.Managers
             coin.Count++;
             _coinRepository.Update(coin);
         }
-        //public void DepositCoins(Dictionary<int, int> coins)
-        //{
-        //    var allCoins = _coinRepository.GetAll();
-        //    foreach (var pair in coins)
-        //    {
-        //        var coin = allCoins.FirstOrDefault(x => x.Denomination == pair.Key);
-        //        coin.Count += pair.Value;
-        //        _coinRepository.Update(coin);
-        //    }
-        //}
 
         /// <summary>
         /// Получение доступных монет
@@ -52,11 +41,11 @@ namespace VendingMachine.BLL.Managers
         /// <returns>Номинал монеты</returns>
         public int GetCoinDenomination(int id) => _coinRepository.GetById(id).Denomination;
 
-       /// <summary>
-       /// Обновление количества монет
-       /// </summary>
-       /// <param name="denomination">Номинал монеты</param>
-       /// <param name="newCoinCount">Новое количество</param>
+        /// <summary>
+        /// Обновление количества монет
+        /// </summary>
+        /// <param name="denomination">Номинал монеты</param>
+        /// <param name="newCoinCount">Новое количество</param>
         public void UpdateDrinkCount(int denomination, int newCoinCount)
         {
             var coin = _coinRepository.GetAll().FirstOrDefault(coin => coin.Denomination == denomination);

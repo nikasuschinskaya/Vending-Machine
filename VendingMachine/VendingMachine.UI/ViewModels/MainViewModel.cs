@@ -1,10 +1,12 @@
 ﻿using Autofac;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using VendingMachine.BLL.Managers;
 using VendingMachine.BLL.Models;
+using VendingMachine.DAL.Enums;
 using VendingMachine.UI.Commands;
 using VendingMachine.UI.ViewModels.Base;
 using VendingMachine.UI.Views;
@@ -15,29 +17,15 @@ namespace VendingMachine.UI.ViewModels
     {
         private readonly CoinManager _coinManager;
         private readonly DrinkManager _drinkManager;
-        //private List<Coin> _avaliableCoins = new List<Coin>();
         private decimal _depositedAmount;
 
-        public List<Drink> AvailableDrinks { get; } = new List<Drink>();
-        //public List<Coin> AvailableCoins { get; } = new List<Coin>();
+        public List<Drink> AvailableDrinks { get; set; } = new List<Drink>();
+        public List<Coin> AvailableCoins { get; set; } = new List<Coin>();
 
-        //public List<Coin> AvailableCoins
-        //{
-        //    get => _avaliableCoins;
-        //    set
-        //    {
-        //        SetProperty(ref _avaliableCoins, value);
-        //        OnPropertyChanged(nameof(OneCoinButtonVisibible));
-        //        OnPropertyChanged(nameof(TwoCoinButtonVisibible));
-        //        OnPropertyChanged(nameof(FiveCoinButtonVisibible));
-        //        OnPropertyChanged(nameof(TenCoinButtonVisibible));
-        //    }
-        //}
-
-        //public string OneCoinButtonVisibible => IsCoinAvaliable(1) ? "Visible" : "Hidden";
-        //public string TwoCoinButtonVisibible => IsCoinAvaliable(2) ? "Visible" : "Hidden";
-        //public string FiveCoinButtonVisibible => IsCoinAvaliable(3) ? "Visible" : "Hidden";
-        //public string TenCoinButtonVisibible => IsCoinAvaliable(4) ? "Visible" : "Hidden";
+        public string OneCoinButtonVisibible => IsCoinAvaliable(1) ? "Visible" : "Hidden";
+        public string TwoCoinButtonVisibible => IsCoinAvaliable(2) ? "Visible" : "Hidden";
+        public string FiveCoinButtonVisibible => IsCoinAvaliable(3) ? "Visible" : "Hidden";
+        public string TenCoinButtonVisibible => IsCoinAvaliable(4) ? "Visible" : "Hidden";
 
 
 
@@ -97,7 +85,7 @@ namespace VendingMachine.UI.ViewModels
                 _drinkManager = scope.Resolve<DrinkManager>();
             }
             RefreshAvailableDrinks();
-            //RefreshAvailableCoins();
+            RefreshAvailableCoins();
             OnClickAutorizationButton = new RelayCommand(AutorizationButtonClicked);
             OnClickOneCoinButton = new RelayCommand(OneCoinButtonClicked);
             OnClickTwoCoinButton = new RelayCommand(TwoCoinButtonClicked);
@@ -119,19 +107,15 @@ namespace VendingMachine.UI.ViewModels
 
         private void RefreshAvailableDrinks()
         {
-            AvailableDrinks.Clear();
-            var drinks = _drinkManager.GetAvaliableDrinks();
-            foreach (var drink in drinks)
-                AvailableDrinks.Add(drink);
+            AvailableDrinks.Clear();;
+            AvailableDrinks = _drinkManager.GetAvaliableDrinks();
         }
 
-        //private void RefreshAvailableCoins()
-        //{
-        //    AvailableCoins.Clear();
-        //    var coins = _coinManager.GetAvaliableCoins();
-        //    foreach (var coin in coins)
-        //        AvailableCoins.Add(coin);
-        //}
+        private void RefreshAvailableCoins()
+        {
+            AvailableCoins.Clear();
+            AvailableCoins = _coinManager.GetAvaliableCoins();
+        }
 
         private void OneCoinButtonClicked(object parameter)
         {
@@ -170,15 +154,7 @@ namespace VendingMachine.UI.ViewModels
             return false;
         }
 
-        //private bool IsCoinAvaliable(int id)
-        //{
-        //    foreach (var item in AvailableCoins)
-        //    {
-        //        if (item.Equals(_coinManager.GetCoinById(id)))
-        //            return true;
-        //    }
-        //    return false;
-        //}
+        private bool IsCoinAvaliable(int id) => AvailableCoins.Any(coin => coin.CoinId == id);
 
         private void AutorizationButtonClicked(object parameter)
         {

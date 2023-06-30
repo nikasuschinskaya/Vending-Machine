@@ -51,7 +51,10 @@
                     <StackPanel Width="300">
                         <Label Content="Id" FontSize="16" HorizontalAlignment="Left" Margin="5" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="54"/>
                         <TextBox x:Name="coinIdTextBox" Text="{Binding SelectedCoin.CoinId}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
-                        <UniformGrid Rows="2" Margin="35">
+                        <Label Content="Количество" FontSize="16" HorizontalAlignment="Left" Margin="5" FontFamily="Rubik" RenderTransformOrigin="0.472,0.017" Width="114"/>
+                        <TextBox x:Name="coinCountTextBox" Text="{Binding SelectedCoin.Count}" FontSize="14" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Width="200"/>
+                        <UniformGrid Rows="3" Margin="35">
+                            <Button x:Name="UpdateCoinButton" Command="{Binding OnClickCoinUpdateButton}" Content="Обновить" FontSize="16" HorizontalAlignment="Left" Margin="10"  FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="120" Cursor="Hand"/>
                             <Button x:Name="BlockCoinButton" Command="{Binding OnClickBlockCoinButton}" Content="Заблокировать" FontSize="16"  HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="153" Cursor="Hand"/>
                             <Button x:Name="UnlockCoinButton" Command="{Binding OnClickUnlockCoinButton}" Content="Разблокировать" FontSize="16" HorizontalAlignment="Left" Margin="10" FontFamily="Rubik" Background="Black" Foreground="White" Height="39" Width="153" Cursor="Hand"/>
                         </UniformGrid>

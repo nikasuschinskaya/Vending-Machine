@@ -80,6 +80,18 @@ namespace VendingMachine.BLL.Managers
         }
 
         /// <summary>
+        /// Изменение количества монет данного номинала
+        /// </summary>
+        /// <param name="id">Id номинала, количество которого нужно изменить</param>
+        /// <param name="newCoinCount">Новое количество монет данного номинала</param>
+        public void UpdateCoinCount(int id, int newCoinCount)
+        {
+            var coin = _coinRepository.GetById(id);
+            coin.Count = newCoinCount;
+            _coinRepository.Update(coin);
+        }
+
+        /// <summary>
         /// Блокировка номинала
         /// </summary>
         /// <param name="id">Id номинала, который нужно заблокировать</param>

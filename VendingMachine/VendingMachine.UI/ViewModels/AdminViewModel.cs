@@ -28,6 +28,7 @@ namespace VendingMachine.UI.ViewModels
         public ICommand OnClickDeleteButton { get; }
         public ICommand OnClickBlockButton { get; }
         public ICommand OnClickUnlockButton { get; }
+        public ICommand OnClickCoinUpdateButton { get; }
         public ICommand OnClickBlockCoinButton { get; }
         public ICommand OnClickUnlockCoinButton { get; }
 
@@ -47,6 +48,7 @@ namespace VendingMachine.UI.ViewModels
             OnClickBlockButton = new RelayCommand(BlockButtonClicked);
             OnClickUnlockButton = new RelayCommand(UnlockButtonClicked);
 
+            OnClickCoinUpdateButton = new RelayCommand(UpdateCoinButtonClicked);
             OnClickBlockCoinButton = new RelayCommand(BlockCoinButtonClicked);
             OnClickUnlockCoinButton = new RelayCommand(UnlockCoinButtonClicked);
         }
@@ -72,24 +74,35 @@ namespace VendingMachine.UI.ViewModels
             Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток удален!");
         }
+
         private void BlockButtonClicked(object parametr)
         {
             _adminManager.BlockDrink(SelectedDrink.DrinkId);
             Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток заблокирован!");
         }
+
         private void UnlockButtonClicked(object parametr)
         {
             _adminManager.UnlockDrink(SelectedDrink.DrinkId);
             Drinks = _adminManager.GetAllDrinks();
             MessageBox.Show("Напиток разблокирован!");
         }
+
+        private void UpdateCoinButtonClicked(object parametr)
+        {
+            _adminManager.UpdateCoinCount(SelectedCoin.CoinId, SelectedCoin.Count);
+            Coins = _adminManager.GetAllCoins();
+            MessageBox.Show("Количество монет данного номинала изменено!");
+        }
+
         private void BlockCoinButtonClicked(object parametr)
         {
             _adminManager.BlockCoin(SelectedCoin.CoinId);
             Coins = _adminManager.GetAllCoins();
             MessageBox.Show("Номинал заблокирован!");
         }
+
         private void UnlockCoinButtonClicked(object parametr)
         {
             _adminManager.UnlockCoin(SelectedCoin.CoinId);

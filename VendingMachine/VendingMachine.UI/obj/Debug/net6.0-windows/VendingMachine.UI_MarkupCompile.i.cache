@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\User\source\repos\Vending-Machine\VendingMachine\VendingMachine.UI\App.xaml
-11407045341
+3-240843115
 
-51199850589
-2271412332880
-MainWindow.xaml;
+131984155073
+229-1851920763
+Views\AdminWindow.xaml;Views\AutorizationWindow.xaml;Views\MainWindow.xaml;
 
-True
+False
 

@@ -34,6 +34,17 @@ namespace VendingMachine.BLL.Managers
         }
 
         /// <summary>
+        /// Получение напитка по имени
+        /// </summary>
+        /// <param name="imgName">Название картинки</param>
+        /// <returns>Напиток</returns>
+        public Drink GetDrinkByImgName(string imgName)
+        {
+            var drink = _drinkRepository.GetAll().FirstOrDefault(drink => drink.Name.Equals(imgName));
+            return new Drink(drink.Id, drink.Name, drink.Count, drink.Cost, drink.DrinkState);
+        }
+
+        /// <summary>
         /// Уменьшает количество напитков при покупке
         /// </summary>
         public Drink BuyDrink(int selectedDrinkId)

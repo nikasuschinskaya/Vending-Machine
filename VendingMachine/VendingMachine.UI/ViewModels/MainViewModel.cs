@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Input;
 using VendingMachine.BLL.Managers;
 using VendingMachine.BLL.Models;
-using VendingMachine.DAL.Enums;
 using VendingMachine.UI.Commands;
 using VendingMachine.UI.ViewModels.Base;
 using VendingMachine.UI.Views;
@@ -28,22 +27,25 @@ namespace VendingMachine.UI.ViewModels
         public string TenCoinButtonVisibible => IsCoinAvaliable(4) ? "Visible" : "Hidden";
 
 
-
         public string FantaVisibible => IsEnoughMoney(1) && IsDrinkAvaliable(1) ? "Visible" : "Hidden";
         public string OutputFantaCost => IsEnoughMoney(1) && IsDrinkAvaliable(1) ? $"{GetFantaCost()} руб." : " ";
+        public string FantaImgPath => GetDrinkImagePath(_drinkManager.GetDrinkById(1).Name);
 
         public string SpriteVisibible => IsEnoughMoney(2) && IsDrinkAvaliable(2) ? "Visible" : "Hidden";
         public string OutputSpriteCost => IsEnoughMoney(2) && IsDrinkAvaliable(2) ? $"{GetSpriteCost()} руб." : " ";
+        public string SpriteImgPath => GetDrinkImagePath(_drinkManager.GetDrinkById(2).Name);
 
         public string SevenUpVisibible => IsEnoughMoney(3) && IsDrinkAvaliable(3) ? "Visible" : "Hidden";
         public string OutputSevenUpCost => IsEnoughMoney(3) && IsDrinkAvaliable(3) ? $"{GetSevenUpCost()} руб." : " ";
+        public string SevenUpImgPath => GetDrinkImagePath(_drinkManager.GetDrinkById(3).Name);
 
         public string ColaVisibible => IsEnoughMoney(4) && IsDrinkAvaliable(4) ? "Visible" : "Hidden";
         public string OutputColaCost => IsEnoughMoney(4) && IsDrinkAvaliable(4) ? $"{GetColaCost()} руб." : " ";
+        public string ColaImgPath => GetDrinkImagePath(_drinkManager.GetDrinkById(4).Name);
 
         public string PepsiVisibible => IsEnoughMoney(5) && IsDrinkAvaliable(5) ? "Visible" : "Hidden";
         public string OutputPepsiCost => IsEnoughMoney(5) && IsDrinkAvaliable(5) ? $"{GetPepsiCost()} руб." : " ";
-
+        public string PepsiImgPath => GetDrinkImagePath(_drinkManager.GetDrinkById(5).Name);
 
         public decimal DepositedAmount
         {
@@ -107,7 +109,7 @@ namespace VendingMachine.UI.ViewModels
 
         private void RefreshAvailableDrinks()
         {
-            AvailableDrinks.Clear();;
+            AvailableDrinks.Clear();
             AvailableDrinks = _drinkManager.GetAvaliableDrinks();
         }
 
@@ -155,6 +157,8 @@ namespace VendingMachine.UI.ViewModels
         }
 
         private bool IsCoinAvaliable(int id) => AvailableCoins.Any(coin => coin.CoinId == id);
+
+        private string GetDrinkImagePath(string drinkName) => $"/Images/{drinkName}.png";
 
         private void AutorizationButtonClicked(object parameter)
         {

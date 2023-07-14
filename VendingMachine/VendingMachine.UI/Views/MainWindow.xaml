@@ -28,27 +28,27 @@
         <Rectangle x:Name="DrinkRectangle" Width="800" Fill="Black" Margin="338,100,62,27"/>
         <Label Content="Выберите напиток" FontSize="24" FontFamily="Rubik" MaxWidth="250" MaxHeight="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="620,112,0,0" Foreground="White"></Label>
 
-        <Image x:Name="FantaImage" Margin="422,178,630,361" Source="/Images/Fanta.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding FantaVisibible}">
+        <Image x:Name="FantaImage" Margin="422,178,630,361" Source="{Binding FantaImgPath}" Stretch="Fill" Cursor="Hand" Visibility="{Binding FantaVisibible}">
             <Image.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickFanta}" />
             </Image.InputBindings>
         </Image>
-        <Image x:Name="SpriteImage" Source="/Images/Sprite.png" Margin="659,175,387,361" Cursor="Hand" Visibility="{Binding SpriteVisibible}">
+        <Image x:Name="SpriteImage" Source="{Binding SpriteImgPath}" Margin="659,175,387,361" Cursor="Hand" Visibility="{Binding SpriteVisibible}">
             <Image.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickSprite}" />
             </Image.InputBindings>
         </Image>
-        <Image x:Name="SevenUpImage" Margin="922,178,144,361" Source="/Images/7up.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding SevenUpVisibible}">
+        <Image x:Name="SevenUpImage" Margin="922,178,144,361" Source="{Binding SevenUpImgPath}" Stretch="Fill" Cursor="Hand" Visibility="{Binding SevenUpVisibible}">
             <Image.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickSevenUp}" />
             </Image.InputBindings>
         </Image>
-        <Image x:Name="ColaImage" Margin="522,370,530,165" Source="/Images/Cola.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding ColaVisibible}">
+        <Image x:Name="ColaImage" Margin="522,370,530,165" Source="{Binding ColaImgPath}" Stretch="Fill" Cursor="Hand" Visibility="{Binding ColaVisibible}">
             <Image.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickCola}" />
             </Image.InputBindings>
         </Image>
-        <Image x:Name="PepsiImage" Margin="792,370,258,165" Source="/Images/pepsi.png" Stretch="Fill" Cursor="Hand" Visibility="{Binding PepsiVisibible}">
+        <Image x:Name="PepsiImage" Margin="792,370,258,165" Source="{Binding PepsiImgPath}" Stretch="Fill" Cursor="Hand" Visibility="{Binding PepsiVisibible}">
             <Image.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding OnClickPepsi}" />
             </Image.InputBindings>

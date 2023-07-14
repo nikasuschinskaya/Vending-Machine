@@ -19,7 +19,7 @@ namespace VendingMachine.UI.Container
 
             var connectionString = ConfigurationManager.ConnectionStrings["sqlServerDB"].ConnectionString;
 
-            builder.RegisterType<ApplicationDbContext>()/*.As<DbContext>()*/
+            builder.RegisterType<ApplicationDbContext>()
                             .WithParameter("options", new DbContextOptionsBuilder<ApplicationDbContext>()
                                             .UseSqlServer(connectionString)
                                             .Options)
@@ -49,7 +49,6 @@ namespace VendingMachine.UI.Container
 
 
             builder.RegisterType<MainWindow>().AsSelf();
-            //builder.RegisterType<MainViewModel>().AsSelf();
             builder.RegisterType<MainViewModel>()
                        .WithParameter((pi, c) => pi.ParameterType == typeof(CoinManager),
                                       (pi, c) => c.Resolve<CoinManager>())
@@ -57,13 +56,11 @@ namespace VendingMachine.UI.Container
                                                   (pi, c) => c.Resolve<DrinkManager>());
 
             builder.RegisterType<AutorizationWindow>().AsSelf();
-            //builder.RegisterType<AutorizationViewModel>().AsSelf();
             builder.RegisterType<AutorizationViewModel>()
                        .WithParameter((pi, c) => pi.ParameterType == typeof(AutorizationManager),
                                       (pi, c) => c.Resolve<AutorizationManager>());
 
             builder.RegisterType<AdminWindow>().AsSelf();
-            //builder.RegisterType<AdminViewModel>().AsSelf();
             builder.RegisterType<AdminViewModel>()
                        .WithParameter((pi, c) => pi.ParameterType == typeof(AdminManager),
                                       (pi, c) => c.Resolve<AdminManager>());

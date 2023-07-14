@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VendingMachine.BLL.Models.Admin" Collapsed="true">
+    <Position X="9.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Models\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Models.Coin" Collapsed="true">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAwAAAAAAAAAAAAAQAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Coin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Models.Drink" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAgAAAABQAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Models\Drink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Managers.DrinkManager" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgIAAAAAAAAAAAAAAAQAAAAAAAAAAgIAAAA=</HashCode>
+      <FileName>Managers\DrinkManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Managers.CoinManager" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgAAAAAAAACAAAAIAAAAAAAQAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Managers\CoinManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Managers.AutorizationManager" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Managers\AutorizationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Managers.AdminManager" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgAAAAAAAkBAAEABAAAAAAAAAAAACAAAAMgAAAAAEAI=</HashCode>
+      <FileName>Managers\AdminManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="8.83" />
+</ClassDiagram>

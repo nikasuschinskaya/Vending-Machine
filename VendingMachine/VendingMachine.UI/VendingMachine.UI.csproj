@@ -41,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\pepsi.png">
+    <Resource Include="Images\Pepsi.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Sprite.png">

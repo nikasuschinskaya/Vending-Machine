@@ -9,14 +9,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="VendingMachine.DAL.Repositories.AdminRepository" Collapsed="true">
-    <Position X="10.75" Y="2" Width="2" />
+    <Position X="10.5" Y="2" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
       <FileName>Repositories\AdminRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Repositories.CoinRepository" Collapsed="true">
-    <Position X="8.5" Y="2" Width="1.75" />
+    <Position X="8.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
       <FileName>Repositories\CoinRepository.cs</FileName>
@@ -30,77 +30,77 @@
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Migrations.InitialDB" Collapsed="true">
-    <Position X="11.25" Y="3.25" Width="1.5" />
+    <Position X="11" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
       <FileName>Migrations\20230617205258_InitialDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Migrations.AddColumnTypeForDecimal" Collapsed="true">
-    <Position X="10.5" Y="5.25" Width="2.25" />
+    <Position X="10.25" Y="5.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
       <FileName>Migrations\20230617213945_AddColumnTypeForDecimal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Migrations.AddStateAtEntities" Collapsed="true">
-    <Position X="11" Y="4.25" Width="1.75" />
+    <Position X="10.75" Y="4.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
       <FileName>Migrations\20230621145412_AddStateAtEntities.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Migrations.ApplicationDbContextModelSnapshot" Collapsed="true">
-    <Position X="10.5" Y="6.25" Width="2.25" />
+    <Position X="10.25" Y="6.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Migrations\ApplicationDbContextModelSnapshot.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Models.Entities.Base.BaseEntity" Collapsed="true">
-    <Position X="3.75" Y="3.5" Width="1.5" />
+    <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Base\BaseEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Entities.Base.CountedEntity" Collapsed="true">
-    <Position X="3.75" Y="4.5" Width="1.5" />
+    <Position X="4.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Base\CountedEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Entities.AdminEntity" Collapsed="true">
-    <Position X="3.75" Y="2.25" Width="1.5" />
+    <Position X="4.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Entities\AdminEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Entities.CoinEntity" Collapsed="true">
-    <Position X="2.5" Y="6.25" Width="1.5" />
+    <Position X="3.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Entities\CoinEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.Entities.DrinkEntity" Collapsed="true">
-    <Position X="5" Y="6.25" Width="1.5" />
+    <Position X="5.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\DrinkEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.DBContext.ApplicationDbContext" Collapsed="true">
-    <Position X="7.5" Y="4.75" Width="1.5" />
+    <Position X="7.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQgAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DBContext\ApplicationDbContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VendingMachine.DAL.DBContext.ContextFactory" Collapsed="true">
-    <Position X="7.5" Y="3.75" Width="1.5" />
+    <Position X="7.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DBContext\ContextFactory.cs</FileName>
@@ -108,14 +108,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="VendingMachine.DAL.Repositories.Base.IRepository&lt;T&gt;" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.75" />
+    <Position X="10.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
       <FileName>Repositories\Base\IRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="VendingMachine.DAL.Enums.State" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Enums\State.cs</FileName>

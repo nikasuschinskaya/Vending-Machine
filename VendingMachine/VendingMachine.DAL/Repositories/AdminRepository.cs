@@ -1,4 +1,5 @@
-﻿using VendingMachine.DAL.DBContext;
+﻿using Microsoft.EntityFrameworkCore;
+using VendingMachine.DAL.DBContext;
 using VendingMachine.DAL.Entities;
 using VendingMachine.DAL.Repositories.Base;
 
@@ -10,6 +11,9 @@ namespace VendingMachine.DAL.Repositories
 
         public override void Create(AdminEntity entity)
         {
+            ArgumentNullException.ThrowIfNull(_context, nameof(_context));
+            ArgumentNullException.ThrowIfNull(entity, nameof(entity));
+
             _context.Admins.Add(entity);
             _context.SaveChanges();
         }

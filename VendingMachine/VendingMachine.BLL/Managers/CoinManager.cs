@@ -46,7 +46,7 @@ namespace VendingMachine.BLL.Managers
         /// </summary>
         /// <param name="denomination">Номинал монеты</param>
         /// <param name="newCoinCount">Новое количество</param>
-        public void UpdateDrinkCount(int denomination, int newCoinCount)
+        public void UpdateCoinCount(int denomination, int newCoinCount)
         {
             var coin = _coinRepository.GetAll().FirstOrDefault(coin => coin.Denomination == denomination);
             coin.Count -= newCoinCount;

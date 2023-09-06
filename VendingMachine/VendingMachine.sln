@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.BLL", "Vendi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.DAL", "VendingMachine.DAL\VendingMachine.DAL.csproj", "{0D5C9C0E-7370-48E0-A44D-4A63061802F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachineTests", "VendingMachineTests\VendingMachineTests.csproj", "{A5E25CC3-6439-430F-9D29-A6461BCA7EEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0D5C9C0E-7370-48E0-A44D-4A63061802F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D5C9C0E-7370-48E0-A44D-4A63061802F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D5C9C0E-7370-48E0-A44D-4A63061802F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E25CC3-6439-430F-9D29-A6461BCA7EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E25CC3-6439-430F-9D29-A6461BCA7EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E25CC3-6439-430F-9D29-A6461BCA7EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E25CC3-6439-430F-9D29-A6461BCA7EEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

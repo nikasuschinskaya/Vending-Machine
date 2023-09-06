@@ -146,16 +146,7 @@ namespace VendingMachine.UI.ViewModels
         private bool IsEnoughMoney(int id) => DepositedAmount >= _drinkManager.GetDrinkCost(id);
         private bool IsNeedChange() => DepositedAmount != 0;
 
-        private bool IsDrinkAvaliable(int id)
-        {
-            foreach (var item in AvailableDrinks)
-            {
-                if (item.Equals(_drinkManager.GetDrinkById(id)))
-                    return true;
-            }
-            return false;
-        }
-
+        private bool IsDrinkAvaliable(int id) => AvailableDrinks.Any(drink => drink.DrinkId == id);
         private bool IsCoinAvaliable(int id) => AvailableCoins.Any(coin => coin.CoinId == id);
 
         private string GetDrinkImagePath(string drinkName) => $"/Images/{drinkName}.png";
@@ -176,7 +167,7 @@ namespace VendingMachine.UI.ViewModels
                 foreach (var item in change)
                 {
                     str += $"{item.Key} руб. - {item.Value} шт. \n";
-                    _coinManager.UpdateDrinkCount(item.Key, item.Value);
+                    _coinManager.UpdateCoinCount(item.Key, item.Value);
                 }
 
                 MessageBox.Show($"Ваша сдача:\n{str}");

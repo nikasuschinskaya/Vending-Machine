@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VendingMachine.UI.ViewModels.Base.ViewModelBase" Collapsed="true">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Base\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VendingMachine.UI.ViewModels.AdminViewModel" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABAUgAIAAgAgAAAAiQCCAAACBAAACAABBIAKAEAQCA=</HashCode>
+      <FileName>ViewModels\AdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.UI.ViewModels.AutorizationViewModel" Collapsed="true">
+    <Position X="11" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAAAAAAAAAAAAAAAAAAAgAAACAAAQIAAAAgA=</HashCode>
+      <FileName>ViewModels\AutorizationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.UI.ViewModels.MainViewModel" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>LAgChJDBFMgQACAAIQqwIkBgAIQBLiAAJAEJIAoYglI=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.BLL.Models.Admin" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="VendingMachine.BLL.Models.Coin" Collapsed="true">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="VendingMachine.BLL.Models.Drink" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="VendingMachine.UI.Views.AdminWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AdminWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VendingMachine.UI.Views.AutorizationWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AutorizationWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="VendingMachine.UI.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="8.83" />
+</ClassDiagram>

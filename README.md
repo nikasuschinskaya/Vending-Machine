@@ -1,4 +1,4 @@
-## Vending-Machine
+# Vending-Machine
 Vending Machine on C# WPF, MS SQL Server, EF
 
 An application that simulates the operation of a vending machine provides the following general functionality:
@@ -16,7 +16,7 @@ The resulting database consists of four tables: three unrelated tables describin
 
 ![image](https://github.com/nikasuschinskaya/Vending-Machine/assets/92970744/c0219f56-9b2e-45f1-8da7-f6efea6a920b)
 
-#Administrative and user interface
+## Administrative and user interface
 
 After launching the developed application, the MainWindow user interface window opens.
 
@@ -45,7 +45,7 @@ On the "Coins" tab, the administrator can manage the coin table: update the numb
 
 On the Drinks tab, the administrator can manage the drinks table: add new drinks, update the quantity and price of drinks, delete drinks, block or unblock drinks.
 
-#Testing
+## Testing
 The Vending Machine Test s project for unit tests contains tests for important and complex functional classes. It allows you to check whether the developed classes and their methods work correctly.
 
 ![image](https://github.com/nikasuschinskaya/Vending-Machine/assets/92970744/9c7f1aaf-312b-4444-a9e3-9f2266d7863e)
